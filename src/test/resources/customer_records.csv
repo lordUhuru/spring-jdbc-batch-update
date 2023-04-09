@@ -1,0 +1,2 @@
+order_Id,customer_id,ordered_at,processed_at,order_status,product_ids
+"2a1a1e28-a063-41ba-a539-412947c86626","67778a55-238d-4a22-b9f8-026a2b954c70","2023-04-01 14:23:23","2023-04-01 14:23:23","PROCESSED","a5ef50c3-227b-4de9-9631-8be0814aff60,67ffa86a-4e87-4576-9510-3cf59af196a1"

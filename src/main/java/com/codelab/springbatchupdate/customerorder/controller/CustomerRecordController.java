@@ -15,10 +15,12 @@ import com.codelab.springbatchupdate.customerorder.csvreader.CustomerOrderCsvRea
 import com.codelab.springbatchupdate.customerorder.service.CustomerOrderService;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @RequestMapping("v1/customers/orders")
 @RequiredArgsConstructor
+@Slf4j
 public class CustomerRecordController {
 
     private final CustomerOrderService customerOrderService;
@@ -28,6 +30,7 @@ public class CustomerRecordController {
     @PostMapping("/batch")
     @ResponseStatus(code = HttpStatus.OK, value = HttpStatus.OK)
     public void upload(@RequestParam("file") MultipartFile file) throws IllegalStateException, UnsupportedEncodingException, IOException {
+        log.info("file: {}", file.getName());
         var records = reader.read(file.getInputStream());
         customerOrderService.handleBatch(records);
     }

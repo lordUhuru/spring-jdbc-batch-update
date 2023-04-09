@@ -6,11 +6,14 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Service;
+
 import com.codelab.springbatchupdate.customerorder.csvreader.CustomerOrderRecord;
 
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
+@Service
 public class CustomerOrderService {
 
     private final JdbcTemplate jdbcTemplate;
