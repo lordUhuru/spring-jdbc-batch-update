@@ -1,3 +1,7 @@
+CREATE SCHEMA IF NOT EXISTS dbuser;
+
+SET search_path TO dbuser,public;
+
 CREATE TABLE IF NOT EXISTS customer_order (
     id uuid not null,
     order_id uuid not null,
