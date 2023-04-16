@@ -1,7 +1,6 @@
 package com.codelab.springbatchupdate.customerorder.service;
 
 import java.sql.Timestamp;
-import java.sql.Types;
 import java.util.List;
 import java.util.UUID;
 
@@ -27,12 +26,12 @@ public class CustomerOrderService {
     public int[][] handleBatch(List<CustomerOrderRecord> records) {
         return jdbcTemplate.batchUpdate(QUERY, records, 128, (ps, item) -> {
             ps.setObject(1, UUID.randomUUID());
-            ps.setObject(2, item.getOrderId());
-            ps.setObject(3, item.getCustomerId());
+            ps.setObject(2, UUID.fromString(item.getOrderId()));
+            ps.setObject(3, UUID.fromString(item.getCustomerId()));
             ps.setObject(4, Timestamp.valueOf(item.getOrderedAt()).toLocalDateTime()); //at UTC
             ps.setObject(5, item.getOrderStatus());
             ps.setObject(6, Timestamp.valueOf(item.getProcessedAt()).toLocalDateTime()); //at UTC
-            ps.setObject(7, String.join(",", item.getProductIds()), Types.VARCHAR); //convert the array to a list, separated by commas
+            ps.setObject(7, item.getProductIds());
         });
     }
 }
