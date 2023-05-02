@@ -32,7 +32,8 @@ public class CustomerRecordControllerTest {
     private MockMvc mockMvc;
 
     @Container
-    private static final PostgreSQLContainer<?> postgreSQLContainer = new PostgreSQLContainer<>(DockerImageName.parse("postgres:15.2-alpine"));
+    private static final PostgreSQLContainer<?> postgreSQLContainer = new PostgreSQLContainer<>(DockerImageName.parse("postgres:15.2-alpine"))
+    .withUrlParam("currentSchema", "dbuser");
 
     @DynamicPropertySource
     private static void overrideProps(DynamicPropertyRegistry registry) {
