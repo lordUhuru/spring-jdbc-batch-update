@@ -7,3 +7,7 @@ spring:
     url: jdbc:postgresql://localhost:5432/app
     username: dbuser
     password: password
+  jpa:
+    properties:
+      hibernate:
+        defaultSchema: dbuser #specify the default schema
