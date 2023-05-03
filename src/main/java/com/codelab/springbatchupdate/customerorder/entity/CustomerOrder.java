@@ -8,6 +8,8 @@ import org.hibernate.annotations.Type;
 import io.hypersistence.utils.hibernate.type.array.StringArrayType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -38,7 +40,8 @@ public class CustomerOrder {
     private OffsetDateTime orderedAt;
 
     @Column(nullable = false, name = "order_status")
-    private OrderStatus orderStatus;
+    @Enumerated(EnumType.STRING)
+    private OrderStatusEnum orderStatus;
 
     @Column(nullable = false, name = "processed_at")
     private OffsetDateTime processedAt;
@@ -46,9 +49,5 @@ public class CustomerOrder {
     @Type(StringArrayType.class)
     @Column(name = "product_ids", columnDefinition = "text[]")
     private String[] productIds;
-
-    enum OrderStatus {
-        PENDING, PROCESSED;
-    }
 
 }
