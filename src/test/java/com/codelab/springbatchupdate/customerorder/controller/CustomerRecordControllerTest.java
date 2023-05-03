@@ -21,8 +21,6 @@ import com.codelab.springbatchupdate.customerorder.entity.CustomerOrder;
 import com.codelab.springbatchupdate.customerorder.entity.OrderStatusEnum;
 import com.codelab.springbatchupdate.customerorder.repository.CustomerOrderRepository;
 
-import lombok.extern.slf4j.Slf4j;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
